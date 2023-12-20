@@ -272,8 +272,10 @@ function reverseString(str) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  const arr = str.split('');
+  const newarr = arr.sort();
+  return newarr.join('');
 }
 
 /**
@@ -288,8 +290,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -306,8 +308,22 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowelsArr = [
+    'a',
+    'e',
+    'i',
+    'o',
+    'u',
+    'y',
+    'A',
+    'E',
+    'I',
+    'O',
+    'U',
+    'Y',
+  ];
+  return str.split('').filter((letter) => vowelsArr.includes(letter)).length;
 }
 
 /**
@@ -323,8 +339,10 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const newStr = str.toLocaleLowerCase().replace(/[\s.,!?%]/g, '');
+  const checkStr = newStr.split('').reverse().join('');
+  return newStr === checkStr;
 }
 
 /**
@@ -339,8 +357,20 @@ function isPalindrome(/* str */) {
  *   findLongestWord('A long and winding road') => 'winding'
  *   findLongestWord('No words here') => 'words'
  */
-function findLongestWord(/* sentence */) {
-  throw new Error('Not implemented');
+function findLongestWord(sentence) {
+  if (!sentence) {
+    return '';
+  }
+  const arr = sentence.split(' ');
+  let longWord;
+  let longLength = 0;
+  arr.forEach((el) => {
+    if (el.length > longLength) {
+      longLength = el.length;
+      longWord = el;
+    }
+  });
+  return longWord;
 }
 
 /**
